@@ -10,6 +10,9 @@ public class StartScreen : MonoBehaviour
     [SerializeField] XRRayInteractor rightRay;
     [SerializeField] LocomotionSystem locomotionSystem;
 
+    [SerializeField] GameObject infoPanel;
+    [SerializeField] Canvas cameraUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,8 @@ public class StartScreen : MonoBehaviour
         leftRay.gameObject.SetActive(true);
         rightRay.gameObject.SetActive(true);
         locomotionSystem.gameObject.SetActive(false);
+        infoPanel.SetActive(false);
+        cameraUI.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,6 +36,8 @@ public class StartScreen : MonoBehaviour
         leftRay.gameObject.SetActive(false);
         rightRay.gameObject.SetActive(false);
         locomotionSystem.gameObject.SetActive(true);
+        infoPanel.SetActive(true);
+        cameraUI.gameObject.SetActive(true);
     }
 
     public void tutorialButton()
@@ -39,12 +46,10 @@ public class StartScreen : MonoBehaviour
         leftRay.gameObject.SetActive(false);
         rightRay.gameObject.SetActive(false);
         locomotionSystem.gameObject.SetActive(true);
+        infoPanel.SetActive(true);
+        cameraUI.gameObject.SetActive(true);
     }
 
-    public void aboutButton()
-    {
-
-    }
     public void quitButton()
     {
         Application.Quit();
