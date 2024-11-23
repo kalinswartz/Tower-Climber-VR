@@ -13,6 +13,8 @@ public class StartScreen : MonoBehaviour
     [SerializeField] Canvas infoPanel;
     [SerializeField] Canvas cameraUI;
 
+    [SerializeField] GameObject tutorial;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class StartScreen : MonoBehaviour
         locomotionSystem.gameObject.SetActive(false);
         infoPanel.gameObject.SetActive(false);
         cameraUI.gameObject.SetActive(false);
+        tutorial.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,6 +51,7 @@ public class StartScreen : MonoBehaviour
         locomotionSystem.gameObject.SetActive(true);
         infoPanel.gameObject.SetActive(true);
         cameraUI.gameObject.SetActive(true);
+        tutorial.SetActive(true);
     }
 
     public void quitButton()

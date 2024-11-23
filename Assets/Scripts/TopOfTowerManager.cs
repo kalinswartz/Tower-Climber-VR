@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class TopOfTowerManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class TopOfTowerManager : MonoBehaviour
     [SerializeField] public GameObject topSafetyHook;
     [SerializeField] public GameObject topCanvas;
 
+    [SerializeField] public GameObject endScreen;
+    [SerializeField] XRRayInteractor leftRay;
+    [SerializeField] XRRayInteractor rightRay;
+
     [SerializeField] public LightBulbRepairManager lightBulbRepairManager;
     [SerializeField] public GameObject lightBulb_light;
     [SerializeField] public GameObject lightBulb;
@@ -16,12 +21,14 @@ public class TopOfTowerManager : MonoBehaviour
     [SerializeField] public Material light_off;
     [SerializeField] public AudioSource button_click;
     Renderer light_renderer;
+
     // Start is called before the first frame update
     void Start()
     {
         topSafetyNet.SetActive(false);
         topSafetyHook.SetActive(false);
         topCanvas.SetActive(false);
+        endScreen.SetActive(false);
         light_renderer = lightBulb.GetComponent<Renderer>();
     }
 
@@ -60,6 +67,16 @@ public class TopOfTowerManager : MonoBehaviour
                 lightBulb_light.SetActive(true);
                 light_renderer.material = light_on;
             }
+            endScreen.gameObject.SetActive(true);
+            leftRay.gameObject.SetActive(true);
+            rightRay.gameObject.SetActive(true);
+            topCanvas.gameObject.SetActive(false);
+
         }
+    }
+
+    public void quitButton()
+    {
+        Application.Quit();
     }
 }
