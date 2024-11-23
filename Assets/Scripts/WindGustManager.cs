@@ -12,8 +12,6 @@ public class WindGustManager : MonoBehaviour
     public float maxVibrationIntensity = 1f;  // Maximum vibration intensity
     public AudioSource windAudioSource;  // AudioSource for wind sound
 
-    private bool isGustActive = false;
-
     void Start()
     {
     
@@ -36,7 +34,7 @@ public class WindGustManager : MonoBehaviour
     private IEnumerator TriggerWindGust()
     {
         Debug.Log("WINDGUST");
-        isGustActive = true;
+       
         float elapsed = 0f;
 
         windAudioSource.Play();
@@ -56,8 +54,6 @@ public class WindGustManager : MonoBehaviour
         // Stop vibration after the gust ends
         SendHapticFeedback(leftController, 0);
         SendHapticFeedback(rightController, 0);
-
-        isGustActive = false;
     }
 
     private void SendHapticFeedback(ActionBasedController controller, float intensity)

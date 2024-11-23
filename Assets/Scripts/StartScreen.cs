@@ -10,7 +10,7 @@ public class StartScreen : MonoBehaviour
     [SerializeField] XRRayInteractor rightRay;
     [SerializeField] LocomotionSystem locomotionSystem;
 
-    [SerializeField] GameObject infoPanel;
+    [SerializeField] Canvas infoPanel;
     [SerializeField] Canvas cameraUI;
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class StartScreen : MonoBehaviour
         leftRay.gameObject.SetActive(true);
         rightRay.gameObject.SetActive(true);
         locomotionSystem.gameObject.SetActive(false);
-        infoPanel.SetActive(false);
+        infoPanel.gameObject.SetActive(false);
         cameraUI.gameObject.SetActive(false);
     }
 
@@ -36,7 +36,7 @@ public class StartScreen : MonoBehaviour
         leftRay.gameObject.SetActive(false);
         rightRay.gameObject.SetActive(false);
         locomotionSystem.gameObject.SetActive(true);
-        infoPanel.SetActive(true);
+        infoPanel.gameObject.SetActive(true);
         cameraUI.gameObject.SetActive(true);
     }
 
@@ -46,7 +46,7 @@ public class StartScreen : MonoBehaviour
         leftRay.gameObject.SetActive(false);
         rightRay.gameObject.SetActive(false);
         locomotionSystem.gameObject.SetActive(true);
-        infoPanel.SetActive(true);
+        infoPanel.gameObject.SetActive(true);
         cameraUI.gameObject.SetActive(true);
     }
 

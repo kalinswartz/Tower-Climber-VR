@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,6 +14,9 @@ public class SafetyHookManager : MonoBehaviour
     public InputActionReference safetyHookReference = null;
     private bool isActive = false; // Only allow hook placement when true
     public WindGustManager windGustManager;
+
+    public int numSafetyHooksPlaced = 0;
+    [SerializeField] TextMeshProUGUI hookCountText; 
 
     public void Awake()
     {
@@ -28,6 +32,8 @@ public class SafetyHookManager : MonoBehaviour
     {
         if (!isActive) return; // Only allow hook placement if inside the trigger zone
         Debug.Log("Safety Hook placed");
+        numSafetyHooksPlaced++;
+        hookCountText.text = $"Safety Hooks Placed: {numSafetyHooksPlaced}";
 
         //Vector3 hookPosition = new Vector3(player.position.x - 0.5f, player.position.y + 0.5f, player.position.z);
         //safetyHook.transform.position = hookPosition;
